@@ -1,0 +1,12 @@
+@import '@fontsource-variable/inter';
+@import 'tailwindcss';
+
+@theme {
+    --font-inter: 'Inter Variable', sans-serif;
+    --color-background: #18181b;
+    --color-foreground: #ffffff;
+}
+
+body {
+    @apply bg-background text-foreground font-inter antialiased scheme-dark;
+}
