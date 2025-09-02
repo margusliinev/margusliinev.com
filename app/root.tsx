@@ -1,6 +1,6 @@
 import type { Route } from './+types/root';
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
-import './app.css';
+import './styles/index.css';
 
 export const links: Route.LinksFunction = () => [
     { rel: 'icon', href: '/favicon.ico' },
