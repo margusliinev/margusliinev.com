@@ -1,5 +1,5 @@
 import type { Route } from './+types/root';
-import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
+import { isRouteErrorResponse, Link, Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
 import './styles/index.css';
 
 export const links: Route.LinksFunction = () => [
@@ -59,27 +59,50 @@ export default function App() {
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
-    let message = 'Oops!';
-    let details = 'An unexpected error occurred.';
-    let stack: string | undefined;
+    if (isRouteErrorResponse(error) && error.status === 404) return <NotFound />;
+    return <InternalServerError />;
+}
 
-    if (isRouteErrorResponse(error)) {
-        message = error.status === 404 ? '404' : 'Error';
-        details = error.status === 404 ? 'The requested page could not be found.' : error.statusText || details;
-    } else if (import.meta.env.DEV && error && error instanceof Error) {
-        details = error.message;
-        stack = error.stack;
-    }
-
+function NotFound() {
     return (
-        <main className='pt-16 p-4 container mx-auto'>
-            <h1>{message}</h1>
-            <p>{details}</p>
-            {stack && (
-                <pre className='w-full p-4 overflow-x-auto'>
-                    <code>{stack}</code>
-                </pre>
-            )}
+        <main className='grid place-items-center min-h-screen text-center'>
+            <div>
+                <h2 className='text-primary text-5xl font-bold'>404</h2>
+                <h1 className='text-6xl font-bold py-4'>Page Not Found</h1>
+                <p className='text-foreground-secondary text-lg'>Sorry, we couldn’t find the page you’re looking for.</p>
+                <nav aria-label='Return home' className='py-4 flex gap-4 justify-self-center items-center'>
+                    <Link
+                        to='/'
+                        className='rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold shadow-xs hover:bg-primary-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary text-white transition-colors'
+                    >
+                        Back to Home
+                    </Link>
+                    <Link to='/' className='text-sm font-semibold text-white'>
+                        Contact support <span aria-hidden='true'>&rarr;</span>
+                    </Link>
+                </nav>
+            </div>
+        </main>
+    );
+}
+
+function InternalServerError() {
+    return (
+        <main>
+            <h2 className='text-primary text-5xl font-bold'>500</h2>
+            <h1 className='text-6xl font-bold py-4'>Internal Server Error</h1>
+            <p className='text-foreground-secondary text-lg'>Sorry, something went wrong on our end. Please try again later.</p>
+            <nav aria-label='Actions' className='py-4 flex gap-4 justify-self-center items-center'>
+                <Link
+                    to='/'
+                    className='rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold shadow-xs hover:bg-primary-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary text-white transition-colors'
+                >
+                    Back to Home
+                </Link>
+                <Link to='/support' className='text-sm font-semibold text-white'>
+                    Contact support <span aria-hidden='true'>&rarr;</span>
+                </Link>
+            </nav>
         </main>
     );
 }
