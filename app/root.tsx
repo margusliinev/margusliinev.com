@@ -8,11 +8,12 @@ export const links: Route.LinksFunction = () => [
     { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
     { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
     { rel: 'manifest', href: '/site.webmanifest' },
-    { rel: 'canonical', href: 'https://margusliinev.com/' },
     { rel: 'me', href: 'https://www.linkedin.com/in/margusliinev' },
     { rel: 'me', href: 'https://www.instagram.com/margusliinev' },
+    { rel: 'me', href: 'https://www.facebook.com/margusliinev' },
     { rel: 'me', href: 'https://twitter.com/margusliinev' },
     { rel: 'me', href: 'https://github.com/margusliinev' },
+    { rel: 'me', href: 'https://x.com/margusliinev' },
 ];
 
 export const meta: Route.MetaFunction = () => [
