@@ -3,23 +3,29 @@ const SITE_URL = 'https://margusliinev.com';
 
 export interface PageSEO {
     title: string;
-    pathname: string;
+    path: string;
+    description: string;
 }
 
 export function seoTitle(pageTitle: string) {
     return `${pageTitle} - ${SITE_NAME}`;
 }
 
-export function seoUrl(pathname: string) {
-    return `${SITE_URL}${pathname}`;
+export function seoUrl(path: string) {
+    return `${SITE_URL}${path}`;
 }
 
-export function seoMeta({ title, pathname }: PageSEO) {
+export function seoMeta({ title, path, description }: PageSEO) {
     const TITLE = seoTitle(title);
-    const URL = seoUrl(pathname);
-    return [{ title: TITLE }, { name: 'twitter:title', content: TITLE }, { property: 'og:title', content: TITLE }, { property: 'og:url', content: URL }];
-}
-
-export function seoLinks({ pathname }: Pick<PageSEO, 'pathname'>) {
-    return [{ rel: 'canonical', href: seoUrl(pathname) }];
+    const URL = seoUrl(path);
+    const DESCRIPTION = description;
+    return [
+        { title: TITLE },
+        { name: 'description', content: DESCRIPTION },
+        { name: 'twitter:title', content: TITLE },
+        { name: 'twitter:description', content: DESCRIPTION },
+        { property: 'og:title', content: TITLE },
+        { property: 'og:description', content: DESCRIPTION },
+        { property: 'og:url', content: URL },
+    ];
 }
