@@ -67,16 +67,16 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
 
 function NotFound() {
     return (
-        <main className='grid place-items-center min-h-screen text-center'>
+        <main className='grid min-h-screen place-items-center text-center'>
             <div className='px-4'>
                 <h2 className='text-primary-light text-5xl font-bold'>404</h2>
-                <h1 className='text-6xl font-bold py-4'>Page Not Found</h1>
+                <h1 className='py-4 text-6xl font-bold'>Page Not Found</h1>
                 <p className='text-foreground-secondary text-lg'>Sorry, we couldn’t find the page you’re looking for.</p>
-                <nav aria-label='Return home' className='py-4 flex gap-4 justify-self-center items-center'>
+                <nav aria-label='Return home' className='flex items-center gap-4 justify-self-center py-4'>
                     <Link
                         to='/'
                         reloadDocument
-                        className='rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold shadow-xs hover:bg-primary-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary text-white transition-colors'
+                        className='bg-primary hover:bg-primary-light focus-visible:outline-primary rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs transition-colors focus-visible:outline-2 focus-visible:outline-offset-2'
                     >
                         Back to Home
                     </Link>
@@ -91,17 +91,16 @@ function NotFound() {
 
 function InternalServerError() {
     return (
-        <main className='grid place-items-center min-h-screen text-center'>
+        <main className='grid min-h-screen place-items-center text-center'>
             <div className='px-4'>
                 <h2 className='text-primary-light text-5xl font-bold'>500</h2>
-                <h1 className='text-6xl font-bold py-4'>Internal Server Error</h1>
+                <h1 className='py-4 text-6xl font-bold'>Internal Server Error</h1>
                 <p className='text-foreground-secondary text-lg'>Sorry, something went wrong on our end. Please try again later.</p>
-                <nav aria-label='Actions' className='py-4 flex gap-4 justify-self-center items-center'>
+                <nav aria-label='Actions' className='flex items-center gap-4 justify-self-center py-4'>
                     <Link
                         to='/'
                         reloadDocument
-                        className='rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold shadow-xs hover:bg-primary-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary text-white
-                    transition-colors'
+                        className='bg-primary hover:bg-primary-light focus-visible:outline-primary rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs transition-colors focus-visible:outline-2 focus-visible:outline-offset-2'
                     >
                         Back to Home
                     </Link>

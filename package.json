@@ -1,12 +1,29 @@
 {
     "name": "margusliinev.com",
-    "private": true,
+    "version": "1.0.0",
+    "description": "Personal website of Margus Liinev - Full Stack Developer specialized in TypeScript, NodeJS and React.",
+    "author": "Margus Liinev",
+    "license": "MIT",
+    "homepage": "https://margusliinev.com",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/margusliinev/margusliinev.com"
+    },
+    "keywords": [
+        "Margus Liinev",
+        "personal website",
+        "portfolio"
+    ],
     "type": "module",
+    "main": "build/server/index.js",
+    "sideEffects": false,
+    "private": true,
     "scripts": {
         "dev": "react-router dev",
         "build": "react-router build",
         "start": "react-router-serve ./build/server/index.js",
-        "typecheck": "react-router typegen && tsc"
+        "typecheck": "react-router typegen && tsc",
+        "format": "prettier --write ."
     },
     "dependencies": {
         "@fontsource-variable/inter": "5.2.6",
@@ -23,6 +40,8 @@
         "@types/node": "24.3.0",
         "@types/react": "19.1.12",
         "@types/react-dom": "19.1.9",
+        "prettier": "3.6.2",
+        "prettier-plugin-tailwindcss": "0.6.14",
         "tailwindcss": "4.1.12",
         "typescript": "5.9.2",
         "vite": "7.1.4",
