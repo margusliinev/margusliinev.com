@@ -32,6 +32,20 @@
     --color-info-dark: #1d4ed8; /* blue-700 */
 }
 
+:root {
+    color-scheme: dark;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    @apply bg-background text-foreground font-inter antialiased scheme-dark;
+    color: var(--color-foreground);
+    background-color: var(--color-background);
+    font-family: var(--font-inter);
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
