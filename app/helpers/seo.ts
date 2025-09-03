@@ -1,3 +1,5 @@
+import { isRouteErrorResponse } from 'react-router';
+
 const SITE_NAME = 'Margus Liinev';
 const SITE_URL = 'https://margusliinev.com';
 
@@ -19,7 +21,7 @@ export function seoMeta({ title, path, description }: PageSEO) {
     const TITLE = seoTitle(title);
     const URL = seoUrl(path);
     const DESCRIPTION = description;
-    return [
+    return () => [
         { title: TITLE },
         { name: 'description', content: DESCRIPTION },
         { name: 'twitter:title', content: TITLE },
@@ -28,4 +30,8 @@ export function seoMeta({ title, path, description }: PageSEO) {
         { property: 'og:description', content: DESCRIPTION },
         { property: 'og:url', content: URL },
     ];
+}
+
+export function seoErrorTitle(error: unknown) {
+    return isRouteErrorResponse(error) && error.status === 404 ? seoTitle('Not Found') : seoTitle('Error');
 }
