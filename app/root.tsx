@@ -68,7 +68,7 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
 function NotFound() {
     return (
         <main className='grid place-items-center min-h-screen text-center'>
-            <div>
+            <div className='px-4'>
                 <h2 className='text-primary-light text-5xl font-bold'>404</h2>
                 <h1 className='text-6xl font-bold py-4'>Page Not Found</h1>
                 <p className='text-foreground-secondary text-lg'>Sorry, we couldn’t find the page you’re looking for.</p>
@@ -92,7 +92,7 @@ function NotFound() {
 function InternalServerError() {
     return (
         <main className='grid place-items-center min-h-screen text-center'>
-            <div>
+            <div className='px-4'>
                 <h2 className='text-primary-light text-5xl font-bold'>500</h2>
                 <h1 className='text-6xl font-bold py-4'>Internal Server Error</h1>
                 <p className='text-foreground-secondary text-lg'>Sorry, something went wrong on our end. Please try again later.</p>
