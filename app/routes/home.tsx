@@ -4,9 +4,19 @@ import { seoMeta } from '../helpers/seo';
 export const meta: Route.MetaFunction = seoMeta({
     title: 'Home',
     path: '/',
-    description: 'Full-Stack Software Engineer focused on TypeScript, NodeJS & React. Explore my work and thoughts.',
+    description: 'I am a Full-Stack Software Engineer specializing in TypeScript, NodeJS and React.',
 });
 
 export default function Home() {
-    return <h1>Hello World</h1>;
+    return (
+        <main className='grid min-h-screen place-items-center'>
+            <div className='flex flex-wrap gap-4'>
+                <button className='bg-success hover:bg-success-dark cursor-pointer rounded-md px-3 py-2 transition-colors'>Success</button>
+                <button className='bg-warning hover:bg-warning-dark cursor-pointer rounded-md px-3 py-2 transition-colors'>Warning</button>
+                <button className='bg-error hover:bg-error-dark cursor-pointer rounded-md px-3 py-2 transition-colors'>Error</button>
+                <button className='bg-info hover:bg-info-dark cursor-pointer rounded-md px-3 py-2 transition-colors'>Info</button>
+                <button className='bg-primary hover:bg-primary-dark cursor-pointer rounded-md px-3 py-2 transition-colors'>Primary</button>
+            </div>
+        </main>
+    );
 }
