@@ -30,6 +30,8 @@ export const meta: Route.MetaFunction = () => [
     { name: 'twitter:card', content: 'summary' },
     { name: 'twitter:title', content: 'Margus Liinev' },
     { name: 'twitter:description', content: 'I am a Full-Stack Software Engineer specializing in TypeScript, NodeJS and React.' },
+    { name: 'twitter:site', content: '@margusliinev' },
+    { name: 'twitter:creator', content: '@margusliinev' },
     { property: 'og:title', content: 'Margus Liinev' },
     { property: 'og:description', content: 'I am a Full-Stack Software Engineer specializing in TypeScript, NodeJS and React.' },
     { property: 'og:url', content: 'https://margusliinev.com/' },

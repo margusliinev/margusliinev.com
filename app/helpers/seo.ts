@@ -7,7 +7,7 @@ export interface PageSEO {
 }
 
 export function seoTitle(pageTitle: string) {
-    return `${pageTitle} | ${SITE_NAME}`;
+    return `${pageTitle} - ${SITE_NAME}`;
 }
 
 export function seoUrl(pathname: string) {
