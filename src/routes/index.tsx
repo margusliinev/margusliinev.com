@@ -29,7 +29,7 @@ function Home() {
                 <div className='max-w-xl space-y-8 text-center'>
                     <div className='space-y-4'>
                         <p className='bg-primary-dark/20 text-primary-light inline-block rounded-md px-3 py-1 text-xs font-medium tracking-wider uppercase'>Coming Soon</p>
-                        <h2 className='text-foreground text-4xl leading-tight font-bold tracking-tight md:text-5xl'>
+                        <h2 className='text-foreground text-4xl leading-tight font-bold tracking-tight md:text-6xl'>
                             Website Under <span className='text-primary-light'>Construction</span>
                         </h2>
                         <p className='text-foreground-muted text-lg leading-relaxed'>
