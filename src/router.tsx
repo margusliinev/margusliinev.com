@@ -29,7 +29,7 @@ function ErrorPage() {
                     <Link
                         to='/'
                         reloadDocument
-                        className='bg-primary hover:bg-primary-light focus-visible:outline-primary rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs transition-colors focus-visible:outline-2 focus-visible:outline-offset-2'
+                        className='bg-primary-dark hover:bg-primary focus-visible:outline-primary rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs transition-colors focus-visible:outline-2 focus-visible:outline-offset-2'
                     >
                         Back to Home
                     </Link>
@@ -53,7 +53,7 @@ function NotFoundPage() {
                     <Link
                         to='/'
                         reloadDocument
-                        className='bg-primary hover:bg-primary-light focus-visible:outline-primary rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs transition-colors focus-visible:outline-2 focus-visible:outline-offset-2'
+                        className='bg-primary-dark hover:bg-primary focus-visible:outline-primary rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs transition-colors focus-visible:outline-2 focus-visible:outline-offset-2'
                     >
                         Back to Home
                     </Link>

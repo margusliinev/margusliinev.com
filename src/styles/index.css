@@ -31,3 +31,32 @@
     --color-info: #2563eb; /* blue-600 */
     --color-info-dark: #1d4ed8; /* blue-700 */
 }
+
+@layer utilities {
+    .gradient {
+        background: linear-gradient(135deg, var(--color-background-dark) 0%, var(--color-background) 100%);
+    }
+
+    .noise {
+        position: relative;
+        isolation: isolate;
+    }
+
+    .noise::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        mix-blend-mode: plus-lighter;
+        opacity: 0.15;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/></filter><rect width='140' height='140' filter='url(%23n)' opacity='0.40'/></svg>");
+        background-size: 180px 180px;
+        background-repeat: repeat;
+    }
+
+    @supports not (mix-blend-mode: plus-lighter) {
+        .noise::after {
+            mix-blend-mode: overlay;
+        }
+    }
+}
