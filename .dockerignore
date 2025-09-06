@@ -1,0 +1,7 @@
+node_modules
+build
+Dockerfile
+.tanstack
+.DS_Store
+.git
+.gitignore
