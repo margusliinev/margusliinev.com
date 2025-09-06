@@ -4,7 +4,7 @@ import { seoMeta } from '../helpers/seo';
 export const Route = createFileRoute('/')({
     head: () => ({
         meta: seoMeta({
-            title: 'Home',
+            title: 'Margus Liinev',
             description: 'I am a Full-Stack Software Engineer specializing in TypeScript, NodeJS, React.',
         }),
     }),
