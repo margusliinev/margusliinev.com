@@ -1,20 +1,22 @@
-FROM node:24-alpine AS build
+FROM node:24-alpine AS development-dependencies-env
+COPY . /app
 WORKDIR /app
-
-COPY package*.json ./
 RUN npm ci
 
-COPY . .
-ENV NODE_ENV=production
-RUN npm run build \ && npm prune --omit=dev
-
-FROM node:24-alpine AS runner
+FROM node:24-alpine AS production-dependencies-env
+COPY ./package.json package-lock.json /app/
 WORKDIR /app
-ENV NODE_ENV=production
+RUN npm ci --omit=dev
 
-COPY package*.json ./
-COPY --from=build /app/node_modules ./node_modules
-COPY --from=build /app/build ./build
+FROM node:24-alpine AS build-env
+COPY . /app/
+COPY --from=development-dependencies-env /app/node_modules /app/node_modules
+WORKDIR /app
+RUN npm run build
 
-USER node
+FROM node:24-alpine
+COPY ./package.json package-lock.json /app/
+COPY --from=production-dependencies-env /app/node_modules /app/node_modules
+COPY --from=build-env /app/build /app/build
+WORKDIR /app
 CMD ["npm", "run", "start"]
