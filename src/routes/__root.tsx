@@ -30,6 +30,7 @@ export const Route = createRootRoute({
             { name: 'color-scheme', content: 'dark' },
             { name: 'theme-color', content: '#18181b' },
             { name: 'robots', content: 'index, follow' },
+            { name: 'referrer', content: 'strict-origin-when-cross-origin' },
             { name: 'twitter:title', content: SITE_NAME },
             { name: 'twitter:description', content: DESCRIPTION },
             { name: 'twitter:creator', content: `@${SOCIAL_HANDLE}` },
