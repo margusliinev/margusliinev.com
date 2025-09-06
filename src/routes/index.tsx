@@ -13,7 +13,7 @@ export const Route = createFileRoute('/')({
 
 function Home() {
     return (
-        <main className='gradient noise flex min-h-screen flex-col'>
+        <main className='flex min-h-screen flex-col'>
             <header className='flex items-center justify-between px-6 py-4'>
                 <h1 className='text-foreground text-xl font-semibold tracking-tight'>margusliinev.com</h1>
                 <span className='bg-background-light text-foreground-muted inline-flex items-center gap-2 rounded-full px-4 py-1 text-sm'>

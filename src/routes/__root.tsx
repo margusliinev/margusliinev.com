@@ -61,7 +61,7 @@ function Document({ children }: { children: ReactNode }) {
             <head>
                 <HeadContent />
             </head>
-            <body className='bg-background text-foreground font-inter antialiased scheme-dark'>
+            <body className='bg-background text-foreground font-inter gradient noise antialiased scheme-dark'>
                 {children}
                 <Scripts />
             </body>
