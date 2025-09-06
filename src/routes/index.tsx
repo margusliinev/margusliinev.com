@@ -40,9 +40,8 @@ function Home() {
                     <div className='flex flex-col items-center justify-center gap-4 md:flex-row'>
                         <a
                             href='mailto:margus.liinev@gmail.com'
-                            className='group bg-primary text-foreground hover:bg-primary-dark focus-visible:ring-primary-light relative inline-flex items-center gap-2 rounded-md px-5 py-3 text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2'
+                            className='bg-primary text-foreground hover:bg-primary-dark focus-visible:ring-primary-light relative inline-flex items-center gap-2 rounded-md px-5 py-3 text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2'
                         >
-                            <span className='bg-primary-light/0 group-hover:bg-primary-light/10 absolute inset-0 rounded-md transition-colors' />
                             <span className='relative'>Get in Touch</span>
                         </a>
                         <a
