@@ -1,7 +1,12 @@
 node_modules
 build
 Dockerfile
+docker-compose.yml
+docker-compose.yaml
 .tanstack
 .DS_Store
 .git
 .gitignore
+.github
+.cache
+.env
