@@ -30,6 +30,8 @@
     --color-info-light: oklch(62.3% 0.214 259.815); /* blue-500 */
     --color-info: oklch(54.6% 0.245 262.881); /* blue-600 */
     --color-info-dark: oklch(48.8% 0.243 264.376); /* blue-700 */
+
+    --breakpoint-xs: 30rem;
 }
 
 @layer utilities {

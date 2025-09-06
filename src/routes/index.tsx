@@ -29,7 +29,7 @@ function Home() {
                 <div className='max-w-xl space-y-8 text-center'>
                     <div className='space-y-4'>
                         <p className='bg-primary-dark/20 text-primary-light inline-block rounded-md px-3 py-1 text-xs font-medium tracking-wider uppercase'>Coming Soon</p>
-                        <h2 className='text-foreground text-4xl leading-tight font-bold tracking-tight md:text-6xl'>
+                        <h2 className='text-foreground xs:text-5xl text-4xl leading-tight font-bold tracking-tight md:text-6xl'>
                             Website Under <span className='text-primary-light'>Construction</span>
                         </h2>
                         <p className='text-foreground-muted text-lg leading-relaxed'>
@@ -37,7 +37,7 @@ function Home() {
                         </p>
                     </div>
 
-                    <div className='flex flex-col items-center justify-center gap-4 md:flex-row'>
+                    <div className='flex flex-row items-center justify-center gap-4'>
                         <a
                             href='mailto:margus.liinev@gmail.com'
                             className='bg-primary-dark text-foreground hover:bg-primary focus-visible:ring-primary-light relative inline-flex items-center gap-2 rounded-md px-5 py-3 text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2'
