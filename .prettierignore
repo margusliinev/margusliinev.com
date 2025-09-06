@@ -1,5 +1,6 @@
-.react-router
 node_modules
 build
+public
+routeTree.gen.ts
+.tanstack
 .DS_Store
-README.md

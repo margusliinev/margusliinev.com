@@ -1,13 +1,14 @@
-import type { Route } from './+types/home';
+import { createFileRoute } from '@tanstack/react-router';
 import { seoMeta } from '../helpers/seo';
 
-export const meta: Route.MetaFunction = seoMeta({
-    title: 'Home',
-    path: '/',
-    description: 'I am a Full-Stack Software Engineer specializing in TypeScript, NodeJS and React.',
+export const Route = createFileRoute('/')({
+    head: () => ({
+        meta: seoMeta({ title: 'Home', description: 'I am a Full-Stack Software Engineer specializing in TypeScript, NodeJS, React.' }),
+    }),
+    component: Home,
 });
 
-export default function Home() {
+function Home() {
     return (
         <main className='grid min-h-screen place-items-center'>
             <div className='flex flex-wrap gap-4'>

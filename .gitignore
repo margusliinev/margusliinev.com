@@ -1,4 +1,4 @@
-.react-router
 node_modules
 build
+.tanstack
 .DS_Store
