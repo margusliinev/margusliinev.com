@@ -1,22 +1,22 @@
 {
     "name": "margusliinev.com",
-    "version": "1.0.0",
     "description": "Margus Liinev's personal website.",
     "author": "Margus Liinev",
-    "license": "MIT",
+    "version": "1.0.0",
     "homepage": "https://margusliinev.com",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/margusliinev/margusliinev.com"
-    },
-    "keywords": [
-        "Margus Liinev",
-        "personal website"
-    ],
+    "license": "MIT",
     "type": "module",
     "main": "build/server/server.js",
     "sideEffects": false,
     "private": true,
+    "keywords": [
+        "Margus Liinev",
+        "personal website"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/margusliinev/margusliinev.com"
+    },
     "scripts": {
         "dev": "vite dev",
         "build": "vite build",

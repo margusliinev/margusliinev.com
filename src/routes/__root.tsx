@@ -4,9 +4,8 @@ import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
 import styles from '../styles/index.css?url';
 import type { ReactNode } from 'react';
 
-const SITE_NAME = 'Margus Liinev';
+const TITLE = 'Margus Liinev';
 const DESCRIPTION = 'I am a Full-Stack Software Engineer specializing in TypeScript, NodeJS, React.';
-const BASE_URL = 'https://margusliinev.com';
 const SOCIAL_HANDLE = 'margusliinev';
 const SOCIAL = {
     linkedin: `https://linkedin.com/in/${SOCIAL_HANDLE}`,
@@ -21,24 +20,24 @@ export const Route = createRootRoute({
     head: () => ({
         meta: [
             { charSet: 'utf-8' },
-            { title: SITE_NAME },
+            { title: TITLE },
             { name: 'viewport', content: 'width=device-width, initial-scale=1' },
             { name: 'description', content: DESCRIPTION },
             { name: 'keywords', content: 'Margus Liinev, Software Engineer, Full-Stack Developer, TypeScript, NodeJS, React' },
-            { name: 'application-name', content: SITE_NAME },
-            { name: 'author', content: SITE_NAME },
+            { name: 'application-name', content: TITLE },
+            { name: 'author', content: TITLE },
             { name: 'color-scheme', content: 'dark' },
             { name: 'theme-color', content: '#18181b' },
             { name: 'robots', content: 'index, follow' },
             { name: 'referrer', content: 'strict-origin-when-cross-origin' },
-            { name: 'twitter:title', content: SITE_NAME },
+            { name: 'twitter:title', content: TITLE },
             { name: 'twitter:description', content: DESCRIPTION },
             { name: 'twitter:creator', content: `@${SOCIAL_HANDLE}` },
             { name: 'twitter:site', content: `@${SOCIAL_HANDLE}` },
             { name: 'twitter:card', content: 'summary_large_image' },
-            { property: 'og:title', content: SITE_NAME },
+            { property: 'og:title', content: TITLE },
             { property: 'og:description', content: DESCRIPTION },
-            { property: 'og:site_name', content: SITE_NAME },
+            { property: 'og:site_name', content: TITLE },
             { property: 'og:locale', content: 'en_US' },
             { property: 'og:type', content: 'website' },
         ],
@@ -60,12 +59,12 @@ export const Route = createRootRoute({
             {
                 type: 'application/ld+json',
                 children: JSON.stringify({
-                    '@context': 'https://schema.org',
-                    '@type': 'Person',
-                    name: SITE_NAME,
-                    url: BASE_URL,
+                    name: TITLE,
                     description: DESCRIPTION,
                     sameAs: [SOCIAL.linkedin, SOCIAL.instagram, SOCIAL.facebook, SOCIAL.twitter, SOCIAL.github, SOCIAL.x],
+                    url: 'https://margusliinev.com',
+                    '@context': 'https://schema.org',
+                    '@type': 'Person',
                 }),
             },
         ],
