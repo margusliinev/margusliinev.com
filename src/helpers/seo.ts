@@ -1,9 +1,9 @@
-interface PageSEO {
+interface PageMeta {
     title: string;
     description: string;
 }
 
-export function seoMeta({ title, description }: PageSEO) {
+export function seoMeta({ title, description }: PageMeta) {
     return [
         { title },
         { name: 'description', content: description },
