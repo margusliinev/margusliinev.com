@@ -23,7 +23,7 @@ function ErrorPage() {
         <main className='grid min-h-screen place-items-center text-center'>
             <div className='px-4'>
                 <h2 className='text-primary-light text-5xl font-bold'>500</h2>
-                <h1 className='py-4 text-6xl font-bold'>Internal Server Error</h1>
+                <h1 className='xs:text-6xl py-4 text-5xl font-bold'>Internal Server Error</h1>
                 <p className='text-foreground-muted text-lg'>Sorry, something went wrong on our end. Please try again later.</p>
                 <nav aria-label='Actions' className='flex items-center gap-4 justify-self-center py-4'>
                     <Link
@@ -47,7 +47,7 @@ function NotFoundPage() {
         <main className='grid min-h-screen place-items-center text-center'>
             <div className='px-4'>
                 <h2 className='text-primary-light text-5xl font-bold'>404</h2>
-                <h1 className='py-4 text-6xl font-bold'>Page Not Found</h1>
+                <h1 className='xs:text-6xl py-4 text-5xl font-bold'>Not Found</h1>
                 <p className='text-foreground-muted text-lg'>Sorry, we couldn’t find the page you’re looking for.</p>
                 <nav aria-label='Return home' className='flex items-center gap-4 justify-self-center py-4'>
                     <Link

@@ -15,7 +15,7 @@ const SOCIAL_CHANNEL = {
     github: `https://github.com/${SOCIAL_HANDLE}`,
 };
 
-const getTitle = (notFound?: boolean) => (notFound ? 'Page Not Found' : TITLE);
+const getTitle = (notFound?: boolean) => (notFound ? 'Not Found' : TITLE);
 const getDescription = (notFound?: boolean) => (notFound ? 'Sorry, we couldn’t find the page you’re looking for.' : DESCRIPTION);
 const getUrl = (loaderData: unknown) => (typeof loaderData === 'string' ? loaderData : 'https://margusliinev.com');
 
