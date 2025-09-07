@@ -64,7 +64,7 @@ function Home() {
             </section>
 
             <footer className='text-foreground-muted mt-auto px-6 pb-6 text-center text-xs'>
-                <p>&copy; {new Date().getFullYear()} Margus Liinev. All rights reserved.</p>
+                <p>&copy; {new Date()?.getFullYear()} Margus Liinev. All rights reserved.</p>
             </footer>
         </main>
     );
