@@ -3,6 +3,7 @@ build
 Dockerfile
 docker-compose.yml
 docker-compose.yaml
+eslint.config.js
 .tanstack
 .DS_Store
 .git
@@ -10,3 +11,5 @@ docker-compose.yaml
 .github
 .cache
 .env
+.prettierrc
+.prettierignore

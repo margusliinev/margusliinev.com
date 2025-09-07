@@ -21,9 +21,11 @@
         "dev": "vite dev",
         "build": "vite build",
         "start": "srvx --prod -s ../client build/server/server.js",
-        "check": "prettier --check . && eslint .",
-        "format": "prettier --write .",
-        "lint": "eslint --fix ."
+        "typescript:check": "tsc --noEmit",
+        "format:check": "prettier --check .",
+        "format:fix": "prettier --write .",
+        "lint:check": "eslint .",
+        "lint:fix": "eslint --fix ."
     },
     "dependencies": {
         "@fontsource-variable/inter": "5.2.6",

@@ -1,13 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { seoMeta } from '../helpers/seo';
 
 export const Route = createFileRoute('/')({
-    head: () => ({
-        meta: seoMeta({
-            title: 'Margus Liinev',
-            description: 'I am a Full-Stack Software Engineer specializing in TypeScript, NodeJS, React.',
-        }),
-    }),
     component: Home,
 });
 

@@ -5,7 +5,7 @@ interface PageSEO {
 
 export function seoMeta({ title, description }: PageSEO) {
     return [
-        { title: title },
+        { title },
         { name: 'description', content: description },
         { name: 'twitter:title', content: title },
         { name: 'twitter:description', content: description },
