@@ -12,7 +12,7 @@ function Home() {
                 <span className='bg-background-light text-foreground-muted inline-flex items-center gap-2 rounded-full px-4 py-1 text-sm'>
                     <span className='relative flex h-2 w-2'>
                         <span className='bg-warning-light absolute inline-flex h-full w-full animate-ping rounded-full opacity-75' />
-                            <span className='bg-warning relative inline-flex h-2 w-2 rounded-full' />
+                        <span className='bg-warning relative inline-flex h-2 w-2 rounded-full' />
                     </span>
                     In Progress
                 </span>
