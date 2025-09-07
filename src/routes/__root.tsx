@@ -4,7 +4,7 @@ import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
 import styles from '../styles/index.css?url';
 import type { ReactNode } from 'react';
 
-const SITE_NAME: number = 'Margus Liinev';
+const SITE_NAME = 'Margus Liinev';
 const DESCRIPTION = 'I am a Full-Stack Software Engineer specializing in TypeScript, NodeJS, React.';
 const BASE_URL = 'https://margusliinev.com';
 const SOCIAL_HANDLE = 'margusliinev';
