@@ -1,8 +1,8 @@
 /// <reference types="vite/client" />
-import type { ReactNode } from 'react';
 import { HeadContent, Outlet, Scripts, createRootRoute } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
 import styles from '../styles/index.css?url';
+import type { ReactNode } from 'react';
 
 const SITE_NAME = 'Margus Liinev';
 const DESCRIPTION = 'I am a Full-Stack Software Engineer specializing in TypeScript, NodeJS, React.';
