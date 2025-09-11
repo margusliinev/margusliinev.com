@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import Logo from './icon.svg';
+import Logo from './logo.svg';
 
 export default async function Home() {
     return (
