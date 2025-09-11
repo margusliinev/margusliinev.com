@@ -3,7 +3,7 @@ import type { NextConfig } from 'next';
 const nextConfig: NextConfig = {
     typedRoutes: true,
     experimental: { globalNotFound: true },
-    logging: { incomingRequests: { ignore: [/^\/favicon\.ico$/] } },
+    logging: { incomingRequests: { ignore: [/\.(?:ico|svg|png)(?:\?.*)?$/] } },
     output: 'standalone',
 };
 

@@ -1,10 +1,15 @@
+import Image from 'next/image';
 import Link from 'next/link';
+import Logo from './icon.svg';
 
 export default async function Home() {
     return (
         <main className='flex min-h-screen flex-col'>
             <header className='flex items-center justify-between px-6 py-4'>
-                <h1 className='text-foreground text-xl font-semibold tracking-tight'>margusliinev.com</h1>
+                <div className='flex items-center gap-3'>
+                    <Image src={Logo} alt='Logo' width={40} height={40} className='h-10 w-10' />
+                    <h1 className='text-foreground text-xl font-semibold tracking-tight'>margusliinev.com</h1>
+                </div>
                 <span className='bg-background-light text-foreground-muted inline-flex items-center gap-2 rounded-full px-4 py-1 text-sm'>
                     <span className='relative flex h-2 w-2'>
                         <span className='bg-warning-light absolute inline-flex h-full w-full animate-ping rounded-full opacity-75' />
