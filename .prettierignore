@@ -1,7 +1,6 @@
 next-env.d.ts
 node_modules
 tsconfig.tsbuildinfo
-build
 public
 .DS_Store
 .next
