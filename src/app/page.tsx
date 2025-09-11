@@ -1,10 +1,6 @@
-import { createFileRoute } from '@tanstack/react-router';
+import Link from 'next/link';
 
-export const Route = createFileRoute('/')({
-    component: Home,
-});
-
-function Home() {
+export default async function Home() {
     return (
         <main className='flex min-h-screen flex-col'>
             <header className='flex items-center justify-between px-6 py-4'>
@@ -37,7 +33,7 @@ function Home() {
                         >
                             <span className='relative'>Get in Touch</span>
                         </a>
-                        <a
+                        <Link
                             href='/'
                             className='bg-background-light text-foreground-muted hover:text-foreground focus-visible:ring-primary-light inline-flex items-center gap-2 rounded-md px-5 py-3 text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2'
                             aria-label='Reload page'
@@ -58,7 +54,7 @@ function Home() {
                                 <path d='M3.51 9a9 9 0 0114.13-3.36L23 10M1 14l5.36 4.36A9 9 0 0020.49 15' />
                             </svg>
                             Refresh
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </section>

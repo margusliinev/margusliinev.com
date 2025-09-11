@@ -1,25 +1,40 @@
-FROM node:24-alpine AS development-dependencies-env
-COPY . /app
+FROM node:24-alpine AS base
+
+# Dependencies layer
+FROM base AS deps
+RUN apk add --no-cache libc6-compat
 WORKDIR /app
+
+COPY package.json package-lock.json* ./
 RUN npm ci
 
-FROM node:24-alpine AS production-dependencies-env
-COPY ./package.json package-lock.json /app/
+# Build layer
+FROM base AS builder
 WORKDIR /app
-RUN npm ci --omit=dev
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
 
-FROM node:24-alpine AS build-env
-COPY . /app/
-COPY --from=development-dependencies-env /app/node_modules /app/node_modules
-WORKDIR /app
+ENV NEXT_TELEMETRY_DISABLED=1
 RUN npm run build
 
-FROM node:24-alpine
-COPY ./package.json package-lock.json /app/
-COPY --from=production-dependencies-env /app/node_modules /app/node_modules
-COPY --from=build-env /app/build /app/build
+# Runtime layer
+FROM base AS runner
 WORKDIR /app
 
-USER node
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
+
+RUN addgroup --system --gid 1001 nodejs \
+  && adduser --system --uid 1001 nextjs
+
+COPY --from=builder /app/public ./public
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+USER nextjs
+
 EXPOSE 3000
-CMD ["npm", "run", "start"]
+ENV PORT=3000
+ENV HOSTNAME="0.0.0.0"
+
+CMD ["node", "server.js"]

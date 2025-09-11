@@ -1,6 +1,8 @@
+next-env.d.ts
 node_modules
+tsconfig.tsbuildinfo
 build
 public
-routeTree.gen.ts
-.tanstack
 .DS_Store
+.next
+.env*

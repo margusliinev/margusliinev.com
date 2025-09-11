@@ -1,15 +1,6 @@
-interface PageMeta {
-    title: string;
-    description: string;
-}
-
-export function seoMeta({ title, description }: PageMeta) {
-    return [
-        { title },
-        { name: 'description', content: description },
-        { name: 'twitter:title', content: title },
-        { name: 'twitter:description', content: description },
-        { property: 'og:title', content: title },
-        { property: 'og:description', content: description },
-    ];
-}
+export const TITLE = 'Margus Liinev';
+export const DESCRIPTION = 'I am a Full-Stack Software Engineer specializing in TypeScript, NodeJS, React.';
+export const KEYWORDS = ['Margus Liinev', 'Software Engineer', 'Full Stack Developer', 'TypeScript', 'NodeJS', 'React'];
+export const BASE_URL = 'https://margusliinev.com';
+export const AUTHOR = 'Margus Liinev';
+export const SOCIAL = '@margusliinev';

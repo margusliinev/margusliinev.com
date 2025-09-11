@@ -10,17 +10,18 @@
         "isolatedModules": true,
         "esModuleInterop": true,
         "skipLibCheck": true,
+        "incremental": true,
         "allowJs": true,
         "noEmit": true,
         "strict": true,
-        "lib": ["DOM", "DOM.Iterable", "ES2022"],
-        "types": ["node", "vite/client"],
+        "moduleResolution": "bundler",
+        "module": "esnext",
+        "target": "ES2017",
+        "jsx": "preserve",
+        "plugins": [{ "name": "next" }],
         "paths": { "@/*": ["./src/*"] },
-        "moduleResolution": "Bundler",
-        "module": "ESNext",
-        "target": "ES2022",
-        "jsx": "react-jsx",
-        "baseUrl": "."
+        "lib": ["dom", "dom.iterable", "esnext"]
     },
-    "include": ["**/*.ts", "**/*.tsx", "eslint.config.js"]
+    "include": ["**/*.ts", "**/*.tsx", "next-env.d.ts", ".next/types/**/*.ts"],
+    "exclude": ["node_modules"]
 }
