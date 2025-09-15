@@ -11,7 +11,8 @@ permissions:
     pull-requests: read
 
 jobs:
-    quality:
+    format_lint_typecheck:
+        name: Format, Lint, and Typecheck
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
@@ -31,7 +32,7 @@ jobs:
 
     build_and_push_image:
         name: Build and push Docker image to ECR
-        needs: quality
+        needs: format_lint_typecheck
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         runs-on: ubuntu-latest
         env:
