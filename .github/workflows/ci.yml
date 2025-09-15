@@ -15,10 +15,10 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
-              uses: actions/checkout@v4
+              uses: actions/checkout@v5
 
-            - name: Use Node.js 24 (stable)
-              uses: actions/setup-node@v4
+            - name: Use NodeJS 24 (stable)
+              uses: actions/setup-node@v5
               with:
                   node-version: 24
                   cache: npm
@@ -28,3 +28,45 @@ jobs:
 
             - name: Format && Lint && Typecheck
               run: npm run check
+
+    build_and_push_image:
+        name: Build and push Docker image to ECR
+        needs: quality
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        runs-on: ubuntu-latest
+        env:
+            ECR_REPOSITORY: margusliinev.com
+            IMAGE_TAG: ${{ github.sha }}
+        outputs:
+            image-uri: ${{ steps.image_meta.outputs.image }}
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v5
+
+            - name: Configure AWS credentials
+              uses: aws-actions/configure-aws-credentials@v5
+              with:
+                  aws-region: ${{ secrets.AWS_REGION }}
+                  aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                  aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+            - name: Login to Amazon ECR
+              id: login-ecr
+              uses: aws-actions/amazon-ecr-login@v2
+
+            - name: Set up Docker Buildx
+              uses: docker/setup-buildx-action@v3
+
+            - name: Build and push
+              uses: docker/build-push-action@v6
+              with:
+                  context: .
+                  file: ./Dockerfile
+                  push: true
+                  platforms: linux/amd64
+                  tags: |
+                      ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}
+
+            - name: Export image URI
+              id: image_meta
+              run: echo "image=${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}" >> $GITHUB_OUTPUT
