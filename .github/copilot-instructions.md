@@ -43,8 +43,3 @@ These notes orient AI coding agents to be effective immediately in this repo. Ke
 
 - ESLint flat config extends `next/core-web-vitals` and `next/typescript`;
 - Strict TS with `strict` in `tsconfig.json`. Use `unknown` over `any`. Avoid `@ts-ignore`.
-
-## Examples
-
-- Example metadata import: `import { TITLE, DESCRIPTION } from '@/helpers/seo'` then `export const metadata = { title: TITLE, description: DESCRIPTION } satisfies Metadata;`
-- New sitemap entry: return array of `{ url: BASE_URL + '/about', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 }`.
