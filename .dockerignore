@@ -1,10 +1,11 @@
 node_modules
 tsconfig.tsbuildinfo
-docker-compose.yml
 docker-compose.yaml
+docker-compose.yml
 eslint.config.mjs
-Dockerfile
 README.md
+build
+dist
 .dockerignore
 .prettierignore
 .prettierrc
