@@ -1,8 +1,7 @@
-FROM node:24-alpine AS base
+FROM node:24-slim AS base
 
-# Dependencies layer
+# Deps layer
 FROM base AS deps
-RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
 COPY package.json package-lock.json* ./
@@ -28,10 +27,7 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
 USER nextjs
-
 ENV NODE_ENV=production
-ENV HOSTNAME=0.0.0.0
-ENV PORT=3000
 
 EXPOSE 3000
 CMD ["node", "server.js"]
