@@ -8,9 +8,11 @@
     --color-background: #18181b; /* zinc-900 */
     --color-background-dark: #09090b; /* zinc-950 */
 
+    --color-primary-very-light: #38bdf8; /* sky-400 */
     --color-primary-light: #0ea5e9; /* sky-500 */
     --color-primary: #0284c7; /* sky-600 */
     --color-primary-dark: #0369a1; /* sky-700 */
+    --color-primary-very-dark: #075985; /* sky-800 */
 
     --color-success-light: #10b981; /* emerald-500 */
     --color-success: #059669; /* emerald-600 */
