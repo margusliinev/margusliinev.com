@@ -1,7 +1,3 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import Logo from './logo.svg';
-
 export default async function Home() {
     return <h1>Home</h1>;
 }
