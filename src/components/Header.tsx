@@ -1,11 +1,54 @@
 'use client';
 
+import { useState, useEffect, createContext, useContext } from 'react';
 import { usePathname } from 'next/navigation';
 import { navigationItems } from '@/data';
 import Link from 'next/link';
 
+interface MobileMenuContextType {
+    isMobileMenuOpen: boolean;
+    setIsMobileMenuOpen: (open: boolean) => void;
+}
+
+const MobileMenuContext = createContext<MobileMenuContextType | null>(null);
+
+export function useMobileMenu() {
+    const context = useContext(MobileMenuContext);
+    if (!context) {
+        throw new Error('useMobileMenu must be used within MobileMenuProvider');
+    }
+    return context;
+}
+
+export function MobileMenuProvider({ children }: { children: React.ReactNode }) {
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    useEffect(() => {
+        if (isMobileMenuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [isMobileMenuOpen]);
+
+    return <MobileMenuContext.Provider value={{ isMobileMenuOpen, setIsMobileMenuOpen }}>{children}</MobileMenuContext.Provider>;
+}
+
 export function Header() {
     const pathname = usePathname();
+    const { isMobileMenuOpen, setIsMobileMenuOpen } = useMobileMenu();
+
+    const handleMobileMenuClose = () => {
+        setIsMobileMenuOpen(false);
+    };
+
+    const handleMobileNavClick = () => {
+        setIsMobileMenuOpen(false);
+    };
 
     return (
         <>
@@ -29,6 +72,45 @@ export function Header() {
                     </ul>
                 </nav>
             </div>
+
+            {isMobileMenuOpen && (
+                <div className='xs:hidden fixed inset-0 z-[60]'>
+                    <div className='bg-background-dark/95 absolute inset-0 backdrop-blur-sm' onClick={handleMobileMenuClose} />
+
+                    <div className='relative flex min-h-full items-center justify-center p-4'>
+                        <div className='bg-background ring-foreground/10 w-full max-w-sm rounded-2xl p-8 ring-1 backdrop-blur-sm'>
+                            <div className='mb-8 flex justify-end'>
+                                <button onClick={handleMobileMenuClose} className='text-foreground-muted hover:text-foreground p-1' aria-label='Close navigation menu'>
+                                    <svg className='h-6 w-6' fill='none' strokeWidth='2' stroke='currentColor' viewBox='0 0 24 24'>
+                                        <path strokeLinecap='round' strokeLinejoin='round' d='M6 18L18 6M6 6l12 12' />
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <nav>
+                                <ul className='space-y-4'>
+                                    {navigationItems.map((navigation) => {
+                                        const isActive = navigation.href === pathname;
+                                        return (
+                                            <li key={navigation.href}>
+                                                <Link
+                                                    href={navigation.href}
+                                                    onClick={handleMobileNavClick}
+                                                    className={`block rounded-lg px-4 py-3 text-center text-lg font-medium transition-colors ${
+                                                        isActive ? 'text-primary-very-light bg-primary-very-light/10' : 'text-foreground-muted hover:text-primary-very-light hover:bg-zinc-800/50'
+                                                    }`}
+                                                >
+                                                    {navigation.label}
+                                                </Link>
+                                            </li>
+                                        );
+                                    })}
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            )}
         </>
     );
 }

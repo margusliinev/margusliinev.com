@@ -4,7 +4,6 @@ export interface WorkExperience {
     logo: string;
     startDate: string;
     endDate: string | null;
-    description?: string;
 }
 
 export const workExperience: WorkExperience[] = [

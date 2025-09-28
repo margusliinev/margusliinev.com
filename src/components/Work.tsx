@@ -1,6 +1,6 @@
-import { workExperience } from '@/data';
 import { BriefcaseIcon, ArrowDownIcon } from '@/components/icons';
 import { formatDateRange } from '@/lib';
+import { workExperience } from '@/data';
 import { Card } from '@/components/ui';
 import Image from 'next/image';
 

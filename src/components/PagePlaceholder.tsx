@@ -1,3 +1,5 @@
+import { MobileMenuButton } from './MobileMenuButton';
+
 interface PagePlaceholderProps {
     title: string;
     description: string;
@@ -5,7 +7,8 @@ interface PagePlaceholderProps {
 
 export function PagePlaceholder({ title, description }: PagePlaceholderProps) {
     return (
-        <div className='flex flex-col justify-center py-16'>
+        <div className='flex flex-col justify-center py-12.5'>
+            <MobileMenuButton />
             <h1 className='text-4xl font-bold tracking-tight text-zinc-100 sm:text-5xl'>{title}</h1>
 
             <div className='mt-8 flex justify-center'>

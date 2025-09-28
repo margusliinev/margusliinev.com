@@ -13,7 +13,7 @@ These notes orient AI coding agents to be effective immediately in this repo. Ke
 - `src/app/layout.tsx`: Root layout. Imports Inter font, global styles, and composes full `metadata`.
 - `src/app/page.tsx`: Home page. Tailwind utility classes and SVG logo import via `next/image`.
 - `src/helpers/seo.ts`: Single source for `TITLE`, `DESCRIPTION`, `KEYWORDS`, `BASE_URL`, author/social. Update here to propagate across metadata routes and layout.
-- `public/`: PWA icons.
+- `public/images`: PWA icons, profile picture and others.
 
 ## Build & Run
 

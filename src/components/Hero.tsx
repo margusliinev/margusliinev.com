@@ -2,12 +2,10 @@
 
 import type { IconComponent } from '@/types';
 import { XIcon, InstagramIcon, GitHubIcon, LinkedInIcon } from '@/components/icons';
+import { SocialLink } from '@/components/ui';
 import { socialLinks } from '@/data';
-import { useState, useEffect } from 'react';
-import { navigationItems } from '@/data';
-import { usePathname } from 'next/navigation';
+import { useMobileMenu } from '@/components/Header';
 import Image from 'next/image';
-import Link from 'next/link';
 
 const iconMap: Record<string, IconComponent> = {
     XIcon,
@@ -17,28 +15,7 @@ const iconMap: Record<string, IconComponent> = {
 };
 
 export function Hero() {
-    const pathname = usePathname();
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-    useEffect(() => {
-        if (isMobileMenuOpen) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = 'unset';
-        }
-
-        return () => {
-            document.body.style.overflow = 'unset';
-        };
-    }, [isMobileMenuOpen]);
-
-    const handleMobileMenuClose = () => {
-        setIsMobileMenuOpen(false);
-    };
-
-    const handleMobileNavClick = () => {
-        setIsMobileMenuOpen(false);
-    };
+    const { setIsMobileMenuOpen } = useMobileMenu();
 
     return (
         <>
@@ -84,53 +61,6 @@ export function Hero() {
                     })}
                 </div>
             </div>
-
-            {isMobileMenuOpen && (
-                <div className='xs:hidden fixed inset-0 z-[60]'>
-                    <div className='bg-background-dark/95 absolute inset-0 backdrop-blur-sm' onClick={handleMobileMenuClose} />
-
-                    <div className='relative flex min-h-full items-center justify-center p-4'>
-                        <div className='bg-background ring-foreground/10 w-full max-w-sm rounded-2xl p-8 ring-1 backdrop-blur-sm'>
-                            <div className='mb-8 flex justify-end'>
-                                <button onClick={handleMobileMenuClose} className='text-foreground-muted hover:text-foreground p-1' aria-label='Close navigation menu'>
-                                    <svg className='h-6 w-6' fill='none' strokeWidth='2' stroke='currentColor' viewBox='0 0 24 24'>
-                                        <path strokeLinecap='round' strokeLinejoin='round' d='M6 18L18 6M6 6l12 12' />
-                                    </svg>
-                                </button>
-                            </div>
-
-                            <nav>
-                                <ul className='space-y-4'>
-                                    {navigationItems.map((navigation) => {
-                                        const isActive = navigation.href === pathname;
-                                        return (
-                                            <li key={navigation.href}>
-                                                <Link
-                                                    href={navigation.href}
-                                                    onClick={handleMobileNavClick}
-                                                    className={`block rounded-lg px-4 py-3 text-center text-lg font-medium transition-colors ${
-                                                        isActive ? 'text-primary-very-light bg-primary-very-light/10' : 'text-foreground-muted hover:text-primary-very-light hover:bg-zinc-800/50'
-                                                    }`}
-                                                >
-                                                    {navigation.label}
-                                                </Link>
-                                            </li>
-                                        );
-                                    })}
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            )}
         </>
-    );
-}
-
-function SocialLink({ icon: Icon, href, ...props }: { icon: IconComponent; href: string; 'aria-label': string }) {
-    return (
-        <a className='group -m-1 p-1' href={href} aria-label={props['aria-label']} target='_blank' rel='noopener noreferrer'>
-            <Icon className='h-6 w-6 fill-zinc-400 transition group-hover:fill-zinc-300' />
-        </a>
     );
 }
