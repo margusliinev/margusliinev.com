@@ -21,8 +21,7 @@ interface LinkButtonProps extends BaseButtonProps, Omit<ComponentPropsWithoutRef
 type ButtonComponentProps = ButtonProps | LinkButtonProps;
 
 const buttonVariants = {
-    primary:
-        'bg-zinc-50 text-zinc-900 hover:bg-zinc-100 active:bg-zinc-100 active:text-zinc-900/60 dark:bg-zinc-800/50 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-zinc-50 dark:active:bg-zinc-800/50 dark:active:text-zinc-50/70',
+    primary: 'bg-zinc-800/50 text-zinc-300 hover:bg-zinc-800 hover:text-zinc-50 active:bg-zinc-800/50 active:text-zinc-50/70',
     secondary: 'bg-primary-dark text-white hover:bg-primary focus-visible:outline-primary focus-visible:outline-2 focus-visible:outline-offset-2 shadow-xs',
 };
 

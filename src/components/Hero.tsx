@@ -1,7 +1,7 @@
-import Image from 'next/image';
-import { socialLinks } from '@/data';
-import { XIcon, InstagramIcon, GitHubIcon, LinkedInIcon } from '@/components/icons';
 import type { IconComponent } from '@/types';
+import { XIcon, InstagramIcon, GitHubIcon, LinkedInIcon } from '@/components/icons';
+import { socialLinks } from '@/data';
+import Image from 'next/image';
 
 const iconMap: Record<string, IconComponent> = {
     XIcon,
@@ -37,7 +37,7 @@ export function Hero() {
 function SocialLink({ icon: Icon, href, ...props }: { icon: IconComponent; href: string; 'aria-label': string }) {
     return (
         <a className='group -m-1 p-1' href={href} aria-label={props['aria-label']} target='_blank' rel='noopener noreferrer'>
-            <Icon className='h-6 w-6 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300' />
+            <Icon className='h-6 w-6 fill-zinc-400 transition group-hover:fill-zinc-300' />
         </a>
     );
 }

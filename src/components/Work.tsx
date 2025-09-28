@@ -1,8 +1,8 @@
-import Image from 'next/image';
 import { workExperience } from '@/data';
 import { BriefcaseIcon, ArrowDownIcon } from '@/components/icons';
-import { Card } from '@/components/ui';
 import { formatDateRange } from '@/lib';
+import { Card } from '@/components/ui';
+import Image from 'next/image';
 
 export function Work() {
     return (
@@ -15,7 +15,7 @@ export function Work() {
                 <ol className='mt-6 flex-grow space-y-4'>
                     {workExperience.map((job) => (
                         <li key={`${job.company}-${job.startDate}`} className='flex gap-4'>
-                            <div className='relative mt-1 -ml-1.5 flex h-10 w-10 flex-none items-center justify-center overflow-hidden rounded-full bg-white shadow-md ring-1 shadow-zinc-800/5 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0'>
+                            <div className='relative mt-1 -ml-1.5 flex h-10 w-10 flex-none items-center justify-center overflow-hidden rounded-full border border-zinc-700/50 bg-zinc-800 ring-0'>
                                 <Image src={job.logo} alt={`${job.company} logo`} className='h-7 w-7 rounded-full object-cover' width={28} height={28} />
                             </div>
                             <dl className='flex flex-auto flex-wrap gap-x-2'>
@@ -34,11 +34,11 @@ export function Work() {
                 <a
                     href='/cv.pdf'
                     download='Margus_Liinev_CV.pdf'
-                    className='group mt-6 inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-md bg-zinc-50 px-3 py-2 text-sm font-medium text-zinc-900 outline-offset-2 transition hover:bg-zinc-100 active:bg-zinc-100 active:text-zinc-900/60 active:transition-none dark:bg-zinc-800/50 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-zinc-50 dark:active:bg-zinc-800/50 dark:active:text-zinc-50/70'
+                    className='group mt-6 inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-md bg-zinc-800/50 px-3 py-2 text-sm font-medium text-zinc-300 outline-offset-2 transition hover:bg-zinc-800 hover:text-zinc-50 active:bg-zinc-800/50 active:text-zinc-50/70 active:transition-none'
                     aria-label='Download CV as PDF'
                 >
                     Download CV
-                    <ArrowDownIcon className='h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50' />
+                    <ArrowDownIcon className='h-4 w-4 stroke-zinc-400 transition group-hover:stroke-zinc-50 group-active:stroke-zinc-50' />
                 </a>
             </Card>
         </section>

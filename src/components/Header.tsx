@@ -1,8 +1,8 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import Link from 'next/link';
 import { navigationItems } from '@/data';
+import Link from 'next/link';
 
 export function Header() {
     const pathname = usePathname();
