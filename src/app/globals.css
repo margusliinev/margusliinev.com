@@ -8,9 +8,11 @@
     --color-background: #18181b; /* zinc-900 */
     --color-background-dark: #09090b; /* zinc-950 */
 
+    --color-primary-very-light: #38bdf8; /* sky-400 */
     --color-primary-light: #0ea5e9; /* sky-500 */
     --color-primary: #0284c7; /* sky-600 */
     --color-primary-dark: #0369a1; /* sky-700 */
+    --color-primary-very-dark: #075985; /* sky-800 */
 
     --color-success-light: #10b981; /* emerald-500 */
     --color-success: #059669; /* emerald-600 */
@@ -32,10 +34,6 @@
 }
 
 @layer utilities {
-    .gradient {
-        background: linear-gradient(135deg, var(--color-background-dark) 0%, var(--color-background) 100%);
-    }
-
     .noise {
         position: relative;
         isolation: isolate;
@@ -45,17 +43,11 @@
         content: '';
         position: absolute;
         inset: 0;
-        opacity: 0.4;
+        opacity: 0.05;
         pointer-events: none;
-        mix-blend-mode: plus-lighter;
+        mix-blend-mode: overlay;
         background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/></filter><rect width='140' height='140' filter='url(%23n)' opacity='0.30'/></svg>");
         background-size: 180px 180px;
         background-repeat: repeat;
-    }
-
-    @supports not (mix-blend-mode: plus-lighter) {
-        .noise::after {
-            mix-blend-mode: overlay;
-        }
     }
 }
