@@ -2,14 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-
-const navigations = [
-    { href: '/', label: 'Home' },
-    { href: '/articles', label: 'Articles' },
-    { href: '/projects', label: 'Projects' },
-    { href: '/contact', label: 'Contact' },
-    { href: '/uses', label: 'Uses' },
-] as const;
+import { navigationItems } from '@/data';
 
 export function Header() {
     const pathname = usePathname();
@@ -18,7 +11,7 @@ export function Header() {
         <div className='flex justify-center self-start py-8'>
             <nav className='pointer-events-auto rounded-full'>
                 <ul className='bg-background-light ring-foreground/10 flex items-center gap-1 rounded-full px-3 text-sm font-medium ring-1 backdrop-blur-sm'>
-                    {navigations.map((navigation) => {
+                    {navigationItems.map((navigation) => {
                         const isActive = navigation.href === pathname;
                         return (
                             <li key={navigation.href}>

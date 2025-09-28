@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
-import { TITLE, DESCRIPTION, KEYWORDS, BASE_URL, AUTHOR, SOCIAL } from '@/helpers/seo';
+import { TITLE, BASE_URL, AUTHOR, KEYWORDS } from '@/helpers/seo';
 import { Inter } from 'next/font/google';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
@@ -12,37 +12,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-    title: TITLE,
-    description: DESCRIPTION,
     keywords: KEYWORDS,
     authors: [{ name: AUTHOR, url: BASE_URL }],
     creator: AUTHOR,
     applicationName: TITLE,
     metadataBase: new URL(BASE_URL),
-    alternates: {
-        canonical: BASE_URL,
-    },
-    appLinks: {
-        web: { url: BASE_URL },
-    },
-    appleWebApp: {
-        title: TITLE,
-    },
-    twitter: {
-        title: TITLE,
-        description: DESCRIPTION,
-        creator: SOCIAL,
-        site: SOCIAL,
-        card: 'summary',
-    },
-    openGraph: {
-        title: TITLE,
-        description: DESCRIPTION,
-        siteName: TITLE,
-        locale: 'en_US',
-        type: 'website',
-        url: BASE_URL,
-    },
     robots: {
         index: true,
         follow: true,
