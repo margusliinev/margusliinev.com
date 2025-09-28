@@ -1,45 +1,122 @@
 # Copilot Instructions for margusliinev.com
 
-These notes orient AI coding agents to be effective immediately in this repo. Keep it brief, concrete, and code-first.
+This is a modern personal website built with Next.js 15, TypeScript, and Tailwind CSS v4. The architecture emphasizes type safety, clean data management, and responsive design patterns.
 
-## Overview
+## Architecture Overview
 
-- Framework: Next.js 15 App Router with TypeScript and React 19 (`src/app`). Tailwind CSS v4 in `globals.css`.
-- Purpose: Personal website landing page; metadata and SEO centralized in `src/helpers/seo.ts`.
-- Runtime: Node.js middleware (`middleware.ts`) and standard Next.js server rendering. Turbopack used for dev/build.
+### Tech Stack & Key Dependencies
 
-## Core Structure
+- **Next.js 15** with App Router, typed routes, and Turbopack enabled for dev/build
+- **React 19** with server components and client components pattern
+- **TypeScript** with strict type checking (`tsc --noEmit` in check script)
+- **Tailwind CSS v4** using CSS variables and custom theme configuration
+- **Standalone output mode** configured for containerized deployment
 
-- `src/app/layout.tsx`: Root layout. Imports Inter font, global styles, and composes full `metadata`.
-- `src/app/page.tsx`: Home page. Tailwind utility classes and SVG logo import via `next/image`.
-- `src/helpers/seo.ts`: Single source for `TITLE`, `DESCRIPTION`, `KEYWORDS`, `BASE_URL`, author/social. Update here to propagate across metadata routes and layout.
-- `public/images`: PWA icons, profile picture and others.
+### Project Structure Conventions
 
-## Build & Run
+```
+src/
+├── app/           # Next.js 15 App Router pages
+├── components/    # Reusable UI components with subfolders
+├── data/          # Centralized data models with TypeScript interfaces
+├── helpers/       # Utility functions (SEO, date formatting, etc.)
+├── lib/           # Shared library code
+└── types/         # Global TypeScript type definitions
+```
 
-- Dev: `npm run dev` (Next.js with Turbopack). Build: `npm run build`. Start: `npm start`.
-- Checks: `npm run check` runs Prettier check, ESLint (flat config), then `tsc --noEmit`.
-- Lint/Format on demand: `npm run lint` (with `--fix`), `npm run format`.
+## Development Workflow
 
-## Conventions & Patterns
+### Essential Commands
 
-- Aliases: Import via `@/*` mapped to `./src/*` (see `tsconfig.json`). Prefer `import {...} from '@/helpers/seo'` style.
-- Metadata: Derive route metadata from `seo.ts` and `metadataBase` in `layout.tsx`.
-- Fonts: Use `next/font/google` Inter with `display: 'swap'`. Add new fonts via same API in layout.
-- Tailwind v4: Theme tokens declared in `src/app/globals.css` under `@theme`. Reuse provided color names: `bg-background`, `text-foreground`, `text-foreground-muted`, `bg-primary[-light|-dark]`, etc. Custom breakpoint `xs` (30rem) is available via `xs:`. Utility classes like `noise` are custom and used on `<body>`.
+- `npm run dev` - Development server with Turbopack
+- `npm run build` - Production build with Turbopack
+- `npm run check` - Full validation (Prettier, ESLint, TypeScript)
+- `npm run format` - Auto-format with Prettier + Tailwind plugin
+- `npm run lint` - Lint with ESLint
 
-## Adding Pages & Routes
+### Code Quality Tools
 
-- New page: create `src/app/<route>/page.tsx`. Import global styles via layout; avoid duplicate font or style imports.
-- Metadata per page: Define `export const metadata: Metadata = {...}` in the route, reusing constants from `seo.ts`.
-- Static assets: Place under `public/` and reference as `/path.ext`. For images, prefer `next/image` where appropriate.
+- ESLint with Next.js config and custom rules
+- Prettier with `prettier-plugin-tailwindcss` for class ordering
+- TypeScript strict mode with `noEmit` checking
 
-## SEO/PWA
+## Styling Conventions
 
-- `robots.ts` and `sitemap.ts` compose from `BASE_URL`. Update `BASE_URL` on domain changes.
-- `manifest.ts` uses `TITLE`/`DESCRIPTION`; icons are in `public/`.
+### Tailwind CSS v4 Custom Theme
 
-## ESLint/TypeScript
+Uses CSS variables for the design system in `globals.css`:
 
-- ESLint flat config extends `next/core-web-vitals` and `next/typescript`;
-- Strict TS with `strict` in `tsconfig.json`. Use `unknown` over `any`. Avoid `@ts-ignore`.
+```css
+@theme {
+    --color-foreground: #ffffff;
+    --color-background: #18181b;
+    --color-primary: #0284c7;
+    --breakpoint-xs: 30rem;
+}
+```
+
+### Responsive Design Patterns
+
+- Mobile-first approach with custom `xs` breakpoint (30rem)
+- Desktop navigation hidden on mobile: `xs:flex hidden`
+- Mobile menu overlay with backdrop blur and scroll lock
+
+### Visual Effects
+
+- `.noise` utility class creates SVG texture overlay
+- Gradient borders for active navigation states
+- Backdrop blur effects with Tailwind's `backdrop-blur-sm`
+
+## SEO & Metadata
+
+### Centralized SEO Configuration
+
+Use `src/helpers/seo.ts` for consistent metadata:
+
+```typescript
+export function createPageMetadata({ title, description, path }: PageMetadataOptions): Metadata {
+    // Returns structured metadata with OpenGraph and Twitter cards
+}
+```
+
+### Image Optimization
+
+Next.js config includes:
+
+- AVIF and WebP format support
+- 60-second minimum cache TTL
+- SVG support with security restrictions
+
+## File Conventions
+
+### Naming Patterns
+
+- React components: PascalCase (e.g., `MobileMenuButton.tsx`)
+- Data files: camelCase with descriptive names (e.g., `workExperience`)
+- Type interfaces: PascalCase matching the data they describe
+
+### Import/Export Strategy
+
+- Barrel exports from `src/data/index.ts` and `src/components/ui/index.ts`
+- Named exports preferred over default exports for data
+- Default exports for page and layout components
+
+## Key Implementation Details
+
+### Navigation System
+
+- Centralized navigation data in `src/data/navigation.ts`
+- Active state detection using `usePathname()`
+- Shared navigation between desktop and mobile with different styling
+
+### Date Handling
+
+Work experience uses `YYYY-MM` format strings with `null` for current positions.
+
+### Type Safety
+
+- Strict TypeScript configuration
+- Interface-driven data structures
+- Proper generic typing for polymorphic components
+
+When adding new features, maintain these patterns and always run `npm run check` before committing changes.
