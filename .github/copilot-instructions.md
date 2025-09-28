@@ -26,7 +26,7 @@ These notes orient AI coding agents to be effective immediately in this repo. Ke
 - Aliases: Import via `@/*` mapped to `./src/*` (see `tsconfig.json`). Prefer `import {...} from '@/helpers/seo'` style.
 - Metadata: Derive route metadata from `seo.ts` and `metadataBase` in `layout.tsx`.
 - Fonts: Use `next/font/google` Inter with `display: 'swap'`. Add new fonts via same API in layout.
-- Tailwind v4: Theme tokens declared in `src/app/globals.css` under `@theme`. Reuse provided color names: `bg-background`, `text-foreground`, `text-foreground-muted`, `bg-primary[-light|-dark]`, etc. Custom breakpoint `xs` (30rem) is available via `xs:`. Utility classes `gradient` and `noise` are custom and used on `<body>`.
+- Tailwind v4: Theme tokens declared in `src/app/globals.css` under `@theme`. Reuse provided color names: `bg-background`, `text-foreground`, `text-foreground-muted`, `bg-primary[-light|-dark]`, etc. Custom breakpoint `xs` (30rem) is available via `xs:`. Utility classes like `noise` are custom and used on `<body>`.
 
 ## Adding Pages & Routes
 

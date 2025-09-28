@@ -15,7 +15,7 @@ export function Header() {
     const pathname = usePathname();
 
     return (
-        <div className='flex justify-center self-start py-6'>
+        <div className='flex justify-center self-start py-8'>
             <nav className='pointer-events-auto rounded-full'>
                 <ul className='bg-background-light ring-foreground/10 flex items-center gap-1 rounded-full px-3 text-sm font-medium ring-1 backdrop-blur-sm'>
                     {navigations.map((navigation) => {
