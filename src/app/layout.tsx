@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 import { TITLE, DESCRIPTION, KEYWORDS, BASE_URL, AUTHOR, SOCIAL } from '@/helpers/seo';
 import { Inter } from 'next/font/google';
 import { Header } from '@/components/Header';
+import { Footer } from '@/components/Footer';
 import './globals.css';
 
 const inter = Inter({
@@ -62,12 +63,17 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
     return (
         <html lang='en' className='scroll-smooth'>
-            <body className={`bg-background text-foreground gradient noise antialiased scheme-dark ${inter.className}`}>
-                <div className='fixed inset-0 flex justify-center sm:px-8'>
+            <body className={`bg-background-dark text-foreground min-h-screen antialiased scheme-dark ${inter.className}`}>
+                <div className='flex justify-center sm:px-8'>
                     <div className='flex w-full max-w-7xl lg:px-8'>
-                        <div className='bg-background w-full ring-1 ring-zinc-300/20'>
-                            <Header />
-                            {children}
+                        <div className='bg-background noise min-h-screen w-full ring-1 ring-zinc-300/20'>
+                            <div className='h-full px-4 sm:px-8 lg:px-12'>
+                                <div className='mx-auto grid h-full max-w-2xl grid-rows-[auto_1fr_auto] lg:max-w-5xl'>
+                                    <Header />
+                                    <main>{children}</main>
+                                    <Footer />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
