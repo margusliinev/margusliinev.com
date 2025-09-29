@@ -5,7 +5,7 @@ import { createPageMetadata } from '@/helpers/seo';
 export const metadata: Metadata = createPageMetadata({
     title: 'Articles',
     description: 'Technical articles, tutorials, and insights about software development, TypeScript, React, and modern web technologies.',
-    path: '/articles',
+    path: 'articles',
 });
 
 export default function Articles() {

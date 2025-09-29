@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
-import { TITLE, BASE_URL, AUTHOR, KEYWORDS } from '@/helpers/seo';
+import { TITLE, BASE_URL, AUTHOR, KEYWORDS, DESCRIPTION } from '@/helpers/seo';
 import { Header, MobileMenuProvider } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { Inter } from 'next/font/google';
@@ -12,11 +12,25 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-    keywords: KEYWORDS,
-    authors: [{ name: AUTHOR, url: BASE_URL }],
-    creator: AUTHOR,
+    title: TITLE,
     applicationName: TITLE,
+    description: DESCRIPTION,
+    keywords: KEYWORDS,
+    creator: AUTHOR,
+    authors: [{ name: AUTHOR, url: BASE_URL }],
     metadataBase: new URL(BASE_URL),
+    icons: {
+        icon: [
+            { url: '/images/favicon.ico', sizes: '48x48', type: 'image/x-icon' },
+            { url: '/images/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+            { url: '/images/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+            { url: '/images/android-chrome-192x192.png', sizes: '192x192', type: 'image/png' },
+            { url: '/images/android-chrome-512x512.png', sizes: '512x512', type: 'image/png' },
+        ],
+        apple: [{ url: '/images/apple-icon.png', sizes: '180x180', type: 'image/png' }],
+        shortcut: '/images/favicon.ico',
+    },
+    manifest: '/manifest.json',
     robots: {
         index: true,
         follow: true,

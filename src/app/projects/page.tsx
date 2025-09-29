@@ -5,7 +5,7 @@ import { createPageMetadata } from '@/helpers/seo';
 export const metadata: Metadata = createPageMetadata({
     title: 'Projects',
     description: "A showcase of projects I've worked on, including web applications, open source contributions, and personal experiments with modern technologies.",
-    path: '/projects',
+    path: 'projects',
 });
 
 export default function Projects() {

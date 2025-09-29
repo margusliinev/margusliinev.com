@@ -16,7 +16,7 @@ const iconMap: Record<string, IconComponent> = {
 export const metadata: Metadata = createPageMetadata({
     title: 'Contact',
     description: 'Get in touch with me. Available for collaboration or just to chat about software development and technology.',
-    path: '/contact',
+    path: 'contact',
 });
 
 export default function Contact() {

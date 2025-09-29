@@ -7,11 +7,17 @@ export default function manifest(): MetadataRoute.Manifest {
         short_name: 'ML',
         description: DESCRIPTION,
         start_url: '/',
+        scope: '/',
+        lang: 'en',
+        orientation: 'portrait',
         display: 'standalone',
+        display_override: ['standalone', 'browser'],
         background_color: '#18181b',
         theme_color: '#18181b',
         icons: [
+            { src: '/images/android-chrome-192x192.png', sizes: '192x192', type: 'image/png', purpose: 'any' },
             { src: '/images/android-chrome-192x192.png', sizes: '192x192', type: 'image/png', purpose: 'maskable' },
+            { src: '/images/android-chrome-512x512.png', sizes: '512x512', type: 'image/png', purpose: 'any' },
             { src: '/images/android-chrome-512x512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
         ],
     };
