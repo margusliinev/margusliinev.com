@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
+import { MobileMenuButton } from '@/components/MobileMenuButton';
+import { CategorySection } from '@/components/CategorySection';
 import { createPageMetadata } from '@/helpers/seo';
 import { usesData } from '@/data';
-import { CategorySection } from '@/components/CategorySection';
-import { MobileMenuButton } from '@/components/MobileMenuButton';
 
 export const metadata: Metadata = createPageMetadata({
     title: 'Uses',

@@ -7,7 +7,7 @@ export interface SocialLink {
 export const socialLinks: SocialLink[] = [
     {
         href: 'https://twitter.com/margusliinev',
-        label: 'Follow on X',
+        label: 'Follow on Twitter',
         iconName: 'XIcon',
     },
     {

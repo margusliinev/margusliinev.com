@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import { createPageMetadata } from '@/helpers/seo';
 import { PagePlaceholder } from '@/components/PagePlaceholder';
+import { createPageMetadata } from '@/helpers/seo';
 
 export const metadata: Metadata = createPageMetadata({
     title: 'Projects',

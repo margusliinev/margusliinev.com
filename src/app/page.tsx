@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
+import { createPageMetadata } from '@/helpers/seo';
+import { Skills } from '@/components/Skills';
 import { Hero } from '@/components/Hero';
 import { Work } from '@/components/Work';
-import { Skills } from '@/components/Skills';
-import { createPageMetadata } from '@/helpers/seo';
 
 export const metadata: Metadata = createPageMetadata({
     title: 'Home',
