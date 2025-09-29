@@ -78,16 +78,14 @@ export function Header() {
                     <div className='bg-background-dark/95 absolute inset-0 backdrop-blur-sm' onClick={handleMobileMenuClose} />
 
                     <div className='relative flex min-h-full items-center justify-center p-4'>
-                        <div className='bg-background ring-foreground/10 w-full max-w-sm rounded-2xl p-8 ring-1 backdrop-blur-sm'>
-                            <div className='mb-8 flex justify-end'>
-                                <button onClick={handleMobileMenuClose} className='text-foreground-muted hover:text-foreground p-1' aria-label='Close navigation menu'>
-                                    <svg className='h-6 w-6' fill='none' strokeWidth='2' stroke='currentColor' viewBox='0 0 24 24'>
-                                        <path strokeLinecap='round' strokeLinejoin='round' d='M6 18L18 6M6 6l12 12' />
-                                    </svg>
-                                </button>
-                            </div>
+                        <div className='bg-background ring-foreground/10 relative w-full max-w-sm rounded-2xl p-8 ring-1 backdrop-blur-sm'>
+                            <button onClick={handleMobileMenuClose} className='text-foreground-muted hover:text-foreground absolute top-4 right-4 p-1' aria-label='Close navigation menu'>
+                                <svg className='h-6 w-6' fill='none' strokeWidth='2' stroke='currentColor' viewBox='0 0 24 24'>
+                                    <path strokeLinecap='round' strokeLinejoin='round' d='M6 18L18 6M6 6l12 12' />
+                                </svg>
+                            </button>
 
-                            <nav>
+                            <nav className='flex min-h-[200px] items-center justify-center'>
                                 <ul className='space-y-4'>
                                     {navigationItems.map((navigation) => {
                                         const isActive = navigation.href === pathname;

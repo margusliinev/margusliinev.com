@@ -1,18 +1,29 @@
 import type { Metadata } from 'next';
 import { createPageMetadata } from '@/helpers/seo';
-import { PagePlaceholder } from '@/components/PagePlaceholder';
+import { usesData } from '@/data';
+import { CategorySection } from '@/components/CategorySection';
+import { MobileMenuButton } from '@/components/MobileMenuButton';
 
 export const metadata: Metadata = createPageMetadata({
     title: 'Uses',
-    description: 'Tools, gadgets, software, and gear that I use daily for software development and productivity. My tech stack and favorite development tools.',
+    description: 'Hardware, software, and tools I use daily for development. MacBook Pro M4 Max, VSCode, Railway, TablePlus, and more recommendations for productive software engineering.',
     path: '/uses',
 });
 
 export default function Uses() {
     return (
-        <PagePlaceholder
-            title='Uses'
-            description="I will put together a comprehensive list of the tools, software, and hardware I use to build software and stay productive. From my development environment to the gadgets on my desk, here's what powers my daily workflow."
-        />
+        <div className='pt-12.5 pb-16 sm:pb-20'>
+            <MobileMenuButton />
+            <div className='max-w-2xl space-y-6'>
+                <h1 className='text-foreground text-3xl font-bold tracking-tight sm:text-4xl'>Uses</h1>
+                <p className='text-foreground-muted text-base leading-7'>The stuff I use on a regular basis.</p>
+            </div>
+
+            <div className='mt-16 space-y-16 sm:mt-20 sm:space-y-20'>
+                {usesData.map((category, index) => (
+                    <CategorySection key={index} category={category} />
+                ))}
+            </div>
+        </div>
     );
 }
