@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { MobileMenuButton } from '@/components/MobileMenuButton';
 import { CategorySection } from '@/components/CategorySection';
 import { createPageMetadata } from '@/helpers/seo';
 import { usesData } from '@/data';
@@ -11,8 +10,7 @@ export const metadata: Metadata = createPageMetadata({
 
 export default function Uses() {
     return (
-        <div className='pt-12.5 pb-16 sm:pb-20'>
-            <MobileMenuButton />
+        <div className='xs:pt-10'>
             <div className='max-w-2xl space-y-6'>
                 <h1 className='text-foreground text-3xl font-bold tracking-tight sm:text-4xl'>Uses</h1>
                 <p className='text-foreground-muted text-base leading-7'>The stuff I use on a regular basis.</p>

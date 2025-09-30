@@ -1,26 +1,12 @@
 'use client';
 
-import { useState, useEffect, createContext, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { navigationItems } from '@/data';
 import Link from 'next/link';
 
-interface MobileMenuContextType {
-    isMobileMenuOpen: boolean;
-    setIsMobileMenuOpen: (open: boolean) => void;
-}
-
-const MobileMenuContext = createContext<MobileMenuContextType | null>(null);
-
-export function useMobileMenu() {
-    const context = useContext(MobileMenuContext);
-    if (!context) {
-        throw new Error('useMobileMenu must be used within MobileMenuProvider');
-    }
-    return context;
-}
-
-export function MobileMenuProvider({ children }: { children: React.ReactNode }) {
+export function Header() {
+    const pathname = usePathname();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     useEffect(() => {
@@ -29,26 +15,13 @@ export function MobileMenuProvider({ children }: { children: React.ReactNode }) 
         } else {
             document.body.style.overflow = 'unset';
         }
-
         return () => {
             document.body.style.overflow = 'unset';
         };
     }, [isMobileMenuOpen]);
 
-    return <MobileMenuContext.Provider value={{ isMobileMenuOpen, setIsMobileMenuOpen }}>{children}</MobileMenuContext.Provider>;
-}
-
-export function Header() {
-    const pathname = usePathname();
-    const { isMobileMenuOpen, setIsMobileMenuOpen } = useMobileMenu();
-
-    const handleMobileMenuClose = () => {
-        setIsMobileMenuOpen(false);
-    };
-
-    const handleMobileNavClick = () => {
-        setIsMobileMenuOpen(false);
-    };
+    const handleMobileMenuClose = () => setIsMobileMenuOpen(false);
+    const handleMobileNavClick = () => setIsMobileMenuOpen(false);
 
     return (
         <>
@@ -71,6 +44,19 @@ export function Header() {
                         })}
                     </ul>
                 </nav>
+            </div>
+
+            <div className='xs:hidden flex justify-end px-4 py-8'>
+                <button
+                    className='bg-background-light ring-foreground/10 pointer-events-auto flex items-center gap-2 rounded-full px-4 py-3 ring-1 backdrop-blur-sm'
+                    onClick={() => setIsMobileMenuOpen(true)}
+                    aria-label='Open navigation menu'
+                >
+                    <span className='text-foreground-muted text-sm font-medium'>Menu</span>
+                    <svg className='text-foreground-muted h-5 w-5' fill='none' strokeWidth='2' stroke='currentColor' viewBox='0 0 24 24'>
+                        <path strokeLinecap='round' strokeLinejoin='round' d='M4 6h16M4 12h16M4 18h16' />
+                    </svg>
+                </button>
             </div>
 
             {isMobileMenuOpen && (

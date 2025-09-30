@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
 import type { IconComponent } from '@/types';
-import { MobileMenuButton } from '@/components/MobileMenuButton';
-import { SocialLink } from '@/components/ui';
 import { XIcon, InstagramIcon, GitHubIcon, LinkedInIcon } from '@/components/icons';
 import { createPageMetadata } from '@/helpers/seo';
+import { SocialLink } from '@/components/ui';
 import { socialLinks } from '@/data';
 
 const iconMap: Record<string, IconComponent> = {
@@ -22,8 +21,7 @@ export default function Contact() {
     const linkedInLink = socialLinks.find((link) => link.iconName === 'LinkedInIcon');
 
     return (
-        <div className='pt-12.5 pb-16 sm:pb-20'>
-            <MobileMenuButton />
+        <div className='xs:pt-10'>
             <div className='max-w-2xl space-y-6'>
                 <h1 className='text-foreground text-3xl font-bold tracking-tight sm:text-4xl'>Contact</h1>
                 <p className='text-foreground-muted text-base leading-7'>

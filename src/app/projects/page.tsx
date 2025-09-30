@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { PagePlaceholder } from '@/components/PagePlaceholder';
+import { Placeholder } from '@/components/Placeholder';
 import { createPageMetadata } from '@/helpers/seo';
 
 export const metadata: Metadata = createPageMetadata({
@@ -8,5 +8,10 @@ export const metadata: Metadata = createPageMetadata({
 });
 
 export default function Projects() {
-    return <PagePlaceholder title='Projects' description="A collection of projects I've worked on over the years. From professional applications to personal experiments." />;
+    return (
+        <Placeholder
+            title='Projects'
+            description='Projects I have worked on will be added here soon. This will include projects from professional applications to personal experiments and pet projects.'
+        />
+    );
 }

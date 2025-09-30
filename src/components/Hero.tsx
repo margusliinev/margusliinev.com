@@ -4,7 +4,6 @@ import type { IconComponent } from '@/types';
 import { XIcon, InstagramIcon, GitHubIcon, LinkedInIcon } from '@/components/icons';
 import { SocialLink } from '@/components/ui';
 import { socialLinks } from '@/data';
-import { useMobileMenu } from '@/components/Header';
 import Image from 'next/image';
 
 const iconMap: Record<string, IconComponent> = {
@@ -15,23 +14,11 @@ const iconMap: Record<string, IconComponent> = {
 };
 
 export function Hero() {
-    const { setIsMobileMenuOpen } = useMobileMenu();
-
     return (
         <>
-            <div className='mb-16 max-w-3xl pt-10 pb-4'>
-                <div className='xs:hidden mb-6 flex items-center justify-between'>
+            <div className='xs:pt-10 mb-16 max-w-3xl pb-4'>
+                <div className='xs:hidden mb-6 flex items-center'>
                     <Image src='/images/profile.jpg' alt='Margus Liinev' className='h-16 w-16 rounded-full object-cover ring-2 ring-zinc-500/50' width={64} height={64} sizes='64px' priority />
-                    <button
-                        className='bg-background-light ring-foreground/10 pointer-events-auto flex items-center gap-2 rounded-full px-4 py-3 ring-1 backdrop-blur-sm'
-                        onClick={() => setIsMobileMenuOpen(true)}
-                        aria-label='Open navigation menu'
-                    >
-                        <span className='text-foreground-muted text-sm font-medium'>Menu</span>
-                        <svg className='text-foreground-muted h-5 w-5' fill='none' strokeWidth='2' stroke='currentColor' viewBox='0 0 24 24'>
-                            <path strokeLinecap='round' strokeLinejoin='round' d='M4 6h16M4 12h16M4 18h16' />
-                        </svg>
-                    </button>
                 </div>
 
                 <Image
