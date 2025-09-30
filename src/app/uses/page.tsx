@@ -6,8 +6,7 @@ import { usesData } from '@/data';
 
 export const metadata: Metadata = createPageMetadata({
     title: 'Uses',
-    description: 'Hardware, software, and tools I use daily for development. MacBook Pro M4 Max, VSCode, Railway, TablePlus, and more recommendations for productive software engineering.',
-    path: 'uses',
+    description: 'The tools, hardware, and software I use to get things done.',
 });
 
 export default function Uses() {

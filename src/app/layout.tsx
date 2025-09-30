@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
-import { TITLE, BASE_URL, AUTHOR, KEYWORDS, DESCRIPTION } from '@/helpers/seo';
+import { TITLE, DESCRIPTION, KEYWORDS, AUTHOR, BASE_URL } from '@/helpers/seo';
 import { Header, MobileMenuProvider } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { Inter } from 'next/font/google';
@@ -51,11 +51,11 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
     return (
         <html lang='en' className='scroll-smooth'>
-            <body className={`bg-background-dark text-foreground min-h-screen antialiased scheme-dark ${inter.className}`}>
+            <body className={`bg-background-dark text-foreground min-h-screen antialiased scheme-dark ${inter.className} noise`}>
                 <MobileMenuProvider>
                     <div className='flex justify-center sm:px-8'>
                         <div className='flex w-full max-w-7xl lg:px-8'>
-                            <div className='bg-background noise min-h-screen w-full ring-1 ring-zinc-300/20'>
+                            <div className='bg-background min-h-screen w-full ring-1 ring-zinc-300/20'>
                                 <div className='h-full px-4 sm:px-8 lg:px-12'>
                                     <div className='mx-auto grid h-full max-w-2xl grid-rows-[auto_1fr_auto] lg:max-w-5xl'>
                                         <Header />

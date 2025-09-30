@@ -15,8 +15,7 @@ const iconMap: Record<string, IconComponent> = {
 
 export const metadata: Metadata = createPageMetadata({
     title: 'Contact',
-    description: 'Get in touch with me. Available for collaboration or just to chat about software development and technology.',
-    path: 'contact',
+    description: "If you’d like to connect, collaborate or just have a conversation about technology, I'd love to hear from you",
 });
 
 export default function Contact() {
@@ -28,8 +27,8 @@ export default function Contact() {
             <div className='max-w-2xl space-y-6'>
                 <h1 className='text-foreground text-3xl font-bold tracking-tight sm:text-4xl'>Contact</h1>
                 <p className='text-foreground-muted text-base leading-7'>
-                    I&apos;m always interested in hearing about interesting projects and having a conversation about technology. Whether you&apos;re looking for collaboration, consulting, or want to
-                    discuss software development, I&apos;d love to hear from you.
+                    I&apos;m always interested in hearing about interesting projects and having a conversation about technology. Whether you&apos;re looking for collaboration or want to discuss
+                    software development, I&apos;d love to hear from you.
                 </p>
             </div>
 

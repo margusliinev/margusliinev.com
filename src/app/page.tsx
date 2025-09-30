@@ -6,9 +6,7 @@ import { Work } from '@/components/Work';
 
 export const metadata: Metadata = createPageMetadata({
     title: 'Home',
-    description:
-        "I'm Margus and I like to build things. I work as a software developer with a focus on TypeScript, Node.js, and React. I’ve been in the field for the past few years, and I’m currently working full-time at Opus.",
-    path: '',
+    description: 'Hey, my name is Margus Liinev. I am a Full-Stack Software Engineer specializing in TypeScript, NodeJS, React. I currently work at Opus.',
 });
 
 export default function Home() {
