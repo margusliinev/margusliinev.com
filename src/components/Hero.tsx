@@ -5,6 +5,7 @@ import { XIcon, InstagramIcon, GitHubIcon, LinkedInIcon } from '@/components/ico
 import { SocialLink } from '@/components/ui';
 import { socialLinks } from '@/data';
 import Image from 'next/image';
+import { MobileButton } from '@/components/ui';
 
 const iconMap: Record<string, IconComponent> = {
     XIcon,
@@ -16,9 +17,10 @@ const iconMap: Record<string, IconComponent> = {
 export function Hero() {
     return (
         <>
-            <div className='xs:pt-10 mb-16 max-w-3xl pb-4'>
-                <div className='xs:hidden mb-6 flex items-center'>
+            <div className='xs:pt-10 mb-16 max-w-3xl pt-7.5 pb-4'>
+                <div className='xs:hidden mb-6 flex items-center justify-between'>
                     <Image src='/images/profile.jpg' alt='Margus Liinev' className='h-16 w-16 rounded-full object-cover ring-2 ring-zinc-500/50' width={64} height={64} sizes='64px' priority />
+                    <MobileButton />
                 </div>
 
                 <Image

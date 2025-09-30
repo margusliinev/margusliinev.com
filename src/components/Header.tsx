@@ -3,10 +3,12 @@
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { navigationItems } from '@/data';
+import { MobileButton } from '@/components/ui';
 import Link from 'next/link';
 
 export function Header() {
     const pathname = usePathname();
+    const isHome = pathname === '/';
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     useEffect(() => {
@@ -20,12 +22,20 @@ export function Header() {
         };
     }, [isMobileMenuOpen]);
 
+    // MobileButton hack to open the mobile menu without prop drilling and
+    // allowing custom location for the button in Hero component
+    useEffect(() => {
+        const handler = () => setIsMobileMenuOpen(true);
+        window.addEventListener('open-mobile-menu', handler);
+        return () => window.removeEventListener('open-mobile-menu', handler);
+    }, []);
+
     const handleMobileMenuClose = () => setIsMobileMenuOpen(false);
     const handleMobileNavClick = () => setIsMobileMenuOpen(false);
 
     return (
         <>
-            <div className='xs:flex hidden justify-center px-4 py-8'>
+            <div className='xs:flex hidden justify-center px-4 py-10'>
                 <nav className='pointer-events-auto rounded-full'>
                     <ul className='bg-background-light ring-foreground/10 flex items-center gap-1 rounded-full px-3 text-sm font-medium ring-1 backdrop-blur-sm'>
                         {navigationItems.map((navigation) => {
@@ -46,18 +56,11 @@ export function Header() {
                 </nav>
             </div>
 
-            <div className='xs:hidden flex justify-end px-4 py-8'>
-                <button
-                    className='bg-background-light ring-foreground/10 pointer-events-auto flex items-center gap-2 rounded-full px-4 py-3 ring-1 backdrop-blur-sm'
-                    onClick={() => setIsMobileMenuOpen(true)}
-                    aria-label='Open navigation menu'
-                >
-                    <span className='text-foreground-muted text-sm font-medium'>Menu</span>
-                    <svg className='text-foreground-muted h-5 w-5' fill='none' strokeWidth='2' stroke='currentColor' viewBox='0 0 24 24'>
-                        <path strokeLinecap='round' strokeLinejoin='round' d='M4 6h16M4 12h16M4 18h16' />
-                    </svg>
-                </button>
-            </div>
+            {!isHome && (
+                <div className='xs:hidden flex justify-end pt-10 pb-8'>
+                    <MobileButton />
+                </div>
+            )}
 
             {isMobileMenuOpen && (
                 <div className='xs:hidden fixed inset-0 z-[60]'>
