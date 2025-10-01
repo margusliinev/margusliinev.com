@@ -25,8 +25,8 @@ export default function Contact() {
             <div className='max-w-2xl space-y-6'>
                 <h1 className='text-foreground text-3xl font-bold tracking-tight sm:text-4xl'>Contact</h1>
                 <p className='text-foreground-muted text-base leading-7'>
-                    I&apos;m always interested in hearing about interesting projects and having a conversation about technology. Whether you&apos;re looking for collaboration or want to discuss
-                    software development, I&apos;d love to hear from you.
+                    I’m always eager to learn about exciting projects and have conversations about technology. Whether you’re looking for collaboration or want to discuss software development, I’d
+                    love to hear from you.
                 </p>
             </div>
 
@@ -45,7 +45,7 @@ export default function Contact() {
                                 LinkedIn
                             </a>
                         )}
-                        , where we can have a professional conversation about opportunities and collaborations.
+                        . Feel free to reach out there if you’d like to work together or explore opportunities.
                     </p>
                 </div>
 

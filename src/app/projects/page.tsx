@@ -11,7 +11,7 @@ export default function Projects() {
     return (
         <Placeholder
             title='Projects'
-            description='Projects I have worked on will be added here soon. This will include projects from professional applications to personal experiments and pet projects.'
+            description='Projects I have worked on will be added here soon. This will include projects from professional applications to personal experiments and fun side projects.'
         />
     );
 }
