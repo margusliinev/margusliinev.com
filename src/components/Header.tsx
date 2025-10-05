@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import { navigationItems } from '@/data';
 import { MobileButton } from '@/components/ui';
+import { navigationItems } from '@/data';
 import Link from 'next/link';
 
 export function Header() {

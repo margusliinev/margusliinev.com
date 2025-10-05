@@ -2,10 +2,9 @@
 
 import type { IconComponent } from '@/types';
 import { XIcon, InstagramIcon, GitHubIcon, LinkedInIcon } from '@/components/icons';
-import { SocialLink } from '@/components/ui';
+import { MobileButton, SocialLink } from '@/components/ui';
 import { socialLinks } from '@/data';
 import Image from 'next/image';
-import { MobileButton } from '@/components/ui';
 
 const iconMap: Record<string, IconComponent> = {
     XIcon,
