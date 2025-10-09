@@ -12,7 +12,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-    title: TITLE,
+    title: { template: `%s | ${TITLE}`, default: TITLE },
     applicationName: TITLE,
     description: DESCRIPTION,
     keywords: KEYWORDS,
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
             { url: '/images/android-chrome-192x192.png', sizes: '192x192', type: 'image/png' },
             { url: '/images/android-chrome-512x512.png', sizes: '512x512', type: 'image/png' },
         ],
-        apple: [{ url: '/images/apple-icon.png', sizes: '180x180', type: 'image/png' }],
+        apple: [{ url: '/images/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
         shortcut: '/images/favicon.ico',
     },
     manifest: '/manifest.json',

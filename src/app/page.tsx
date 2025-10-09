@@ -5,7 +5,7 @@ import { Hero } from '@/components/Hero';
 import { Work } from '@/components/Work';
 
 export const metadata: Metadata = createPageMetadata({
-    title: 'Home',
+    title: 'Home | Margus Liinev',
     description: 'Hey, my name is Margus Liinev. I am a Full-Stack Software Engineer specializing in TypeScript, Node.js, React. I love building software and solving complex problems.',
 });
 

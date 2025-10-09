@@ -13,20 +13,18 @@ interface PageMetadataOptions {
 }
 
 export function createPageMetadata({ title, description }: PageMetadataOptions): Metadata {
-    const pageTitle = `${title} - ${TITLE}`;
-
     return {
-        title: pageTitle,
+        title,
         description,
         openGraph: {
-            title: pageTitle,
+            title,
             description,
             siteName: TITLE,
             locale: 'en_US',
             type: 'website',
         },
         twitter: {
-            title: pageTitle,
+            title,
             description,
             creator: SOCIAL,
             site: SOCIAL,
