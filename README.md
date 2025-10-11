@@ -44,11 +44,6 @@ Useful scripts:
 - **Railway**: Builds the app with `next build` (standalone output) and creates a docker image using Dockerfile.
 - **Cloudflare**: Fronted by Cloudflare CDN/Proxy for global caching, TLS, and performance.
 
-Notes:
-
-- Images are served in AVIF/WebP with cache TTL configured in `next.config.ts`.
-- Security headers for SVG are enforced via Next Image `contentSecurityPolicy`.
-
 ## License
 
 MIT

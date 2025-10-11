@@ -1,12 +1,12 @@
-FROM oven/bun:1.3.0 AS base
+FROM node:24-slim AS base
 
 # Deps layer
 FROM base AS deps
 WORKDIR /app
 
-COPY package.json bun.lock ./
+COPY package.json package-lock.json ./
 
-RUN bun install
+RUN npm ci
 
 # Build layer
 FROM base AS builder
@@ -15,7 +15,7 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-RUN bun run build
+RUN npm run build
 
 # Runtime layer
 FROM base AS runner
@@ -30,4 +30,4 @@ ENV HOSTNAME=0.0.0.0
 ENV PORT=3000
 
 EXPOSE 3000
-CMD ["bun", "run", "server.js"]
+CMD ["node", "server.js"]
