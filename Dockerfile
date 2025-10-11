@@ -21,14 +21,9 @@ RUN bun run build
 FROM base AS runner
 WORKDIR /app
 
-RUN addgroup --system --gid 1001 bun
-RUN adduser --system --uid 1001 --ingroup bun nextjs
-
-COPY --from=builder --chown=nextjs:bun /app/public ./public
-COPY --from=builder --chown=nextjs:bun /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:bun /app/.next/static ./.next/static
-
-USER nextjs
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
 
 ENV NODE_ENV=production
 ENV HOSTNAME=0.0.0.0
