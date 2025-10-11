@@ -3,7 +3,7 @@ import { Placeholder } from '@/components/Placeholder';
 import { createPageMetadata } from '@/helpers/seo';
 
 export const metadata: Metadata = createPageMetadata({
-    title: 'Projects',
+    title: 'Projects | Margus Liinev',
     description: "A collection of projects I've worked on over the years. From professional applications to personal experiments.",
 });
 

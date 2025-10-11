@@ -4,7 +4,7 @@ import { createPageMetadata } from '@/helpers/seo';
 import { usesData } from '@/data';
 
 export const metadata: Metadata = createPageMetadata({
-    title: 'Uses',
+    title: 'Uses | Margus Liinev',
     description: 'The tools, hardware, and software I use to get things done.',
 });
 

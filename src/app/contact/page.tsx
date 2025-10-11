@@ -13,7 +13,7 @@ const iconMap: Record<string, IconComponent> = {
 };
 
 export const metadata: Metadata = createPageMetadata({
-    title: 'Contact',
+    title: 'Contact | Margus Liinev',
     description: "If you’d like to connect, collaborate or just have a conversation about technology, I'd love to hear from you",
 });
 
