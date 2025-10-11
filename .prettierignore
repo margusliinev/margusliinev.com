@@ -2,6 +2,8 @@ tsconfig.tsbuildinfo
 next-env.d.ts
 node_modules
 public
+build
+dist
 .DS_Store
 .next
-.env*
+.env
